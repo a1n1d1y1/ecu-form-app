@@ -10,7 +10,7 @@ st.title("🔧 ECU Submission Form")
 st.markdown("Please fill out the form below based on the requirements.")
 
 # Step 1: Select team
-team = st.selectbox("Select Requirement to be filled", ["EOL", "Service", "Diagnostics"])
+team = st.selectbox("Select Requirement to be Filled", ["EOL", "Service", "Diagnostics"])
 
 # Step 2: Display team-specific fields
 module_name = st.text_input("Module Name")
