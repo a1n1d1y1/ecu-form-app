@@ -26,7 +26,7 @@ with tab1:
     form_data["Source Address"] = st.text_input("Source Address", help="Enter the ECU's communication address (e.g., 0x72)")
     form_data["VCP Name"] = st.text_input("VCP Name", help="Enter the .vcp configuration name used for flashing")
     form_data["Protocol"] = st.text_input("Protocol")
-    form_data["Baud Rate"] = st.text_area("Baud Rate", help="Mention supported baud rates (e.g., 500k, 1M)")
+    form_data["Baud Rate"] = st.text_input("Baud Rate", help="Mention supported baud rates (e.g., 500k, 1M)")
     form_data["Wiring Information"] = st.text_input("Wiring Information")
 
     st.markdown("### 🧠 Programming Details")
@@ -89,4 +89,4 @@ if st.button("Submit"):
     updated_df.to_excel(output_file, index=False)
 
     st.success("✅ Submission successful!")
-    st.info(f"Your {form_data['Team']} team data for module '{module_name}' has been saved.")
+    st.info(f"Your {form_data['Team']} data for module '{module_name}' has been saved.")
