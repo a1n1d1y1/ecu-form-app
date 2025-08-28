@@ -89,4 +89,7 @@ if st.button("Submit"):
     updated_df.to_excel(output_file, index=False)
 
     st.success("✅ Submission successful!")
-    st.info(f"Your {form_data['Team']} data for module '{module_name}' has been saved.")
+    st.info(f"Your {form_data['Team']} team data for module '{module_name}' has been saved.")
+
+    with st.expander("📄 View Your Submitted Data"):
+        st.dataframe(submission_df.T, use_container_width=True)  # Transposed for easier view
