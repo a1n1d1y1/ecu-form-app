@@ -88,8 +88,20 @@ if st.button("Submit"):
 
     updated_df.to_excel(output_file, index=False)
 
+    # Show success message
     st.success("✅ Submission successful!")
-    st.info(f"Your {form_data['Team']} team data for module '{module_name}' has been saved.")
+    st.info(f"Your {form_data['Team']} data for module '{module_name}' has been saved.")
 
-    with st.expander("📄 View Your Submitted Data"):
-        st.dataframe(submission_df.T, use_container_width=True)  # Transposed for easier view
+    # Generate downloadable Excel of just their submission
+    import io
+    excel_file = io.BytesIO()
+    submission_df.to_excel(excel_file, index=False)
+    excel_file.seek(0)
+
+    # Provide download button
+    st.download_button(
+        label="📥 Download My Submission (Excel)",
+        data=excel_file,
+        file_name=f"{module_name.replace(' ', '_')}_submission.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
